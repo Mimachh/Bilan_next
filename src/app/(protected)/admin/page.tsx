@@ -1,6 +1,6 @@
 "use client";
 
-import { admin } from "@/actions/admin";
+import { Admin } from "@/actions/admin";
 import { getAdminRole } from "@/actions/get-admin-role";
 import { getSuperAdminRole } from "@/actions/get-super-admin-role";
 import { RoleGate } from "@/components/auth/role-gate";
@@ -31,7 +31,7 @@ const AdminPage = () => {
 
  
   const onServerActionClick = () => {
-    admin().then((data) => {
+    Admin().then((data) => {
       if (data.error) {
         toast.error(data.error);
       }

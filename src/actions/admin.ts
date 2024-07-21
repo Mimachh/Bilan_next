@@ -5,7 +5,7 @@ import { getAdminRole } from "./get-admin-role";
 import { useCheckAdminRole, useCheckSuperAdminRole } from "@/hooks/use-check-admin-role";
 import { Role } from "@prisma/client";
 
-export const admin = async () => {
+export const Admin = async () => {
   const roles = await currentRole();
 
   const isAdmin = await useCheckAdminRole(roles) || await useCheckSuperAdminRole(roles);

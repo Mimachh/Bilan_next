@@ -100,7 +100,7 @@ const Newsletter = () => {
               />
 
                 <Button size={"sm"} className="px-5 rounded-full bg-black border border-gray-200 absolute top-1/2 -translate-y-1/2 right-0.5 h-10">
-                  Je m'inscris
+                  Je m&apos;inscris
                 </Button>
            
             </form>
