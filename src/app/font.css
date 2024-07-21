@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_Black.otf") format("opentype");
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_Medium.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_Regular.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_Light.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Made Tommy";
+  src: url("/fonts/made_tommy/MADE_TOMMY_Thin.otf") format("opentype");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
