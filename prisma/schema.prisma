@@ -1,7 +1,7 @@
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  // directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 generator client {
@@ -94,7 +94,7 @@ model TwoFactorConfirmation {
 }
 
 model Category {
-  id          String  @id @default(cuid())
+  id          Int     @id @default(autoincrement())
   name        String  @unique
   slug        String  @unique
   description String?
@@ -112,7 +112,7 @@ model Category {
 }
 
 model RefreshCounter {
-  id        String   @id @default(cuid())
+  id        Int      @id @default(autoincrement())
   name      String   @unique
   slug      String   @unique
   value     Int      @default(0)
@@ -122,30 +122,36 @@ model RefreshCounter {
 }
 
 model Statistique {
-  id                           String  @id @default(cuid())
+  id                           Int     @id @default(autoincrement())
   name                         String  @unique
   slug                         String  @unique
-  stat_reference_previous_year Int?
+  stat_reference_previous_year Float
   has_starting_stat_to_add     Boolean @default(false)
-  starting_stat_to_add         Int?
+  starting_stat_to_add         Float?
   comment                      String?
 
   sources Source[]
 
+  isActive   Boolean @default(true)
+  isStatic   Boolean @default(false)
+  isPrice    Boolean @default(false)
+  isFeatured Boolean @default(false)
+
   createdAt DateTime @default(now())
 
-  refreshId String
-  refresh   RefreshCounter @relation(fields: [refreshId], references: [id])
+  refreshId Int?
+  refresh   RefreshCounter? @relation(fields: [refreshId], references: [id], onDelete: SetNull)
 
-  categoryId String
+  categoryId Int
   category   Category @relation(fields: [categoryId], references: [id])
 }
 
 model Source {
-  id            String      @id @default(cuid())
+  id            Int         @id @default(autoincrement())
+  name          String
   url           String?
-  description    String?
-  statistiqueId String
-  statistique   Statistique @relation(fields: [statistiqueId], references: [id])
+  description   String?
+  statistiqueId Int
+  statistique   Statistique @relation(fields: [statistiqueId], references: [id], onDelete: Cascade)
   createdAt     DateTime    @default(now())
 }

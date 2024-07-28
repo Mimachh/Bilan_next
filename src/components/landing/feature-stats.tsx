@@ -1,51 +1,47 @@
-import Link from 'next/link'
-import React from 'react'
-import { Eye, LineChart, Plus } from 'lucide-react';
-import { Button } from '../ui/button';
-const FeatureStats = () => {
+import Link from "next/link";
+import React from "react";
+import { CategoryRootWithStats } from "@/types/category";
+import { getActiveCountersGroupedByCategory } from "@/actions/root/stat";
+import Counter from "../compteur/counter";
+
+const FeatureStats = async () => {
+  const stats: CategoryRootWithStats[] =
+    await getActiveCountersGroupedByCategory();
+  const startOfYear = 1672527600000; // 1er janvier 2023
+  const now = new Date().getTime();
+
   return (
-    <section className='max-w-lg mx-auto space-y-6 my-12 px-4 '>
-        <h2 className='text-4xl text-center font-bold'>Le bilan de Jupiter</h2>
+    <section className="max-w-lg mx-auto space-y-8 my-12 px-4">
+      <h2 className="text-4xl text-center font-bold">Le bilan de Jupiter</h2>
 
-        {/* Section de chaque catégorie */}
+   
+      <div className="space-y-10">
+        {stats.map((category, index) => {
+          return (
+            <div key={index} >
+              <div className="flex items-center justify-between">
+                <h3 className="text-2xl font-semibold text-neutral-800">{category.name}</h3>
+                <Link
+                  href="/"
+                  className="text-primaryColor transition-all hover:text-primaryColor/90 underline"
+                >
+                  Voir la liste complète
+                </Link>
+              </div>
 
-        <div className='flex items-center justify-between'>
-            <h3 className='text-xl font-semibold'>Economie</h3>
-            <Link href='/' className='text-primaryColor transition-all hover:text-primaryColor/90 underline'>Voir la liste complète</Link>
-        </div>
-
-        <div className='flex items-center justify-between'>
-            <div className=''>
-            <h4>Dette publique : </h4>
-            <p>3 143 966 956,05 €</p>
+              {category.statistics.map((stat, index) => {
+                return (
+                  <div key={index}>
+                    <Counter now={now} startOfYear={startOfYear} stat={stat} />
+                  </div>
+                );
+              })}
             </div>
-            <div className='space-x-1.5'>
-              <Button variant={"outlinePrimaryColor"} size={"sm_icon"}><LineChart size={12} /></Button>
-              <Button variant={"outlinePrimaryColor"} size={"sm_icon"}><Eye size={12} /></Button>
-            </div>
-        </div>
-        <div className='flex items-center justify-between'>
-            <div className=''>
-            <h4>Dette publique : </h4>
-            <p>3 143 966 956,05 €</p>
-            </div>
-            <div className='space-x-1.5'>
-              <Button variant={"outlinePrimaryColor"} size={"sm_icon"}><LineChart size={12} /></Button>
-              <Button variant={"outlinePrimaryColor"} size={"sm_icon"}><Eye size={12} /></Button>
-            </div>
-        </div>
-        <div className='flex items-center justify-between'>
-            <div className=''>
-            <h4>Dette publique : </h4>
-            <p>3 143 966 956,05 €</p>
-            </div>
-            <div className='space-x-1.5'>
-              <Button variant={"outlinePrimaryColor"} size={"sm_icon"}><LineChart size={12} /></Button>
-              <Button variant={"outlinePrimaryColor"} size={"sm_icon"}><Eye size={12} /></Button>
-            </div>
-        </div>
+          );
+        })}
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default FeatureStats
+export default FeatureStats;

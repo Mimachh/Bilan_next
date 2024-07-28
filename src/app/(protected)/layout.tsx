@@ -6,8 +6,10 @@ interface ProtectedLayoutProps {
 
 const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
   return ( 
-    <div className="h-full max-w-5xl mx-auto">
-      <Navbar />
+    <div 
+    // className="h-full max-w-5xl mx-auto"
+    >
+      {/* <Navbar /> */}
       {children}
     </div>
    );

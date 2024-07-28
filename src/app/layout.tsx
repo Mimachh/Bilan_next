@@ -4,8 +4,8 @@ import { SessionProvider } from 'next-auth/react'
 import { auth } from '@/next-auth-config/auth'
 import './globals.css'
 import './font.css'
-import { Toaster } from "@/components/ui/sonner";
-
+import { Toaster as SonnarToaster } from '@/components/ui/sonner'
+import { Toaster } from '@/components/ui/toaster'
 const poppins = Poppins(
   { subsets: ['latin'], 
     weight: ['300', '400', '500', '600', '700', '800', '900'] }
@@ -28,6 +28,7 @@ export default async function RootLayout({
       <html lang="en" className={poppins.className}>
         <body>
           <Toaster />
+          <SonnarToaster />
           {children}
         </body>
       </html>

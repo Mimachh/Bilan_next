@@ -24,19 +24,19 @@ const Hero = () => {
         className="z-[5] absolute inset-0 element
     "
       />
-      <div className="md:grid md:grid-cols-12 h-[90vh] md:min-h-[calc(110vh-0.5rem)]  max-w-7xl mx-auto px-4">
+      <div className="gb-transparent md:grid md:grid-cols-12 h-[90vh] md:min-h-[calc(110vh-0.5rem)]  max-w-7xl mx-auto px-4">
         <div className="relative z-[6] md:col-span-6 flex items-center md:h-full h-screen">
           <div className="space-y-12">
             <div className="space-y-4">
               <h1 className="gradient_primary_text font-extrabold text-7xl md:text-[110px] leading-[5.5rem]">
-                Merci Macron.
+                Bravo Macron.
               </h1>
               <div className="">
                 <p className="leading-6 text-neutral-200">
-                  Un homme, deux quinquennats, une catastrophe.
+                  Un homme, deux quinquennats, un bilan.
                 </p>
                 <p className="leading-6 text-neutral-200">
-                  Découvrer le bilan désastreux du Mozart de la baise.
+                  Découvrer en temps réel le désastre du Mozart de la finance.
                 </p>
               </div>
             </div>
@@ -56,6 +56,7 @@ const Hero = () => {
               className="w-full h-full object-cover"
               src={"/assets/macron/1_no_bg.png"}
               width={650}
+              priority
               height={850}
               alt="Macron"
             />

@@ -9,6 +9,7 @@ export const createSource = async () => {
     }
   await prisma.source.create({
     data: {
+      name: "Example Source",
       url: "https://www.example.com",
       description: "This is an example source",
       statistiqueId: stat?.id,

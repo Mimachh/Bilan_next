@@ -39,10 +39,10 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="bg-neutral-950 h-[35rem] md:h-[40rem]">
+    <section className="bg-neutral-950 h-[35rem] md:min-h-[95vh]">
       <div className="flex-col flex items-center justify-center h-full w-full space-y-12">
         <div className="md:px-2 px-4 mx-auto w-full  md:max-w-4xl md:space-y-4">
-          <div className="mt-[-43px] md:mt-0">
+          <div className="mt-[-43px] md:mt-[-65px]">
             <ul className="flex justify-center items-center md:w-md md:mb-6">
               <li className="">
                 <FacebookLogo
@@ -63,7 +63,7 @@ const Newsletter = () => {
             </ul>
           </div>
           <h2
-            className="gradient_primary_text font-bold text-3xl md:text-6xl text-center 
+            className="gradient_primary_text  font-bold text-3xl md:text-6xl text-center  
     "
           >
             Restez Informé

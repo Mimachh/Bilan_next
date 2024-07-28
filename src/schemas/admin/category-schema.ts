@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const CategorySchema = z.object({
+  id: z.string().optional(),
   name: z
     .string()
     .min(1, {
@@ -9,20 +10,18 @@ export const CategorySchema = z.object({
     .max(60, {
       message: "Name is too long",
     }),
-  // slug: z
-  //   .string()
-  //   .min(1, {
-  //     message: "Slug is required",
-  //   })
-  //   .max(60, {
-  //     message: "Slug is too long",
-  //   }),
-  description: z.string().max(160, {
-    message: "Description is too long",
-  }).optional(),
-  image: z.string().optional(),
-  parentId: z.string().optional(),
+
+  description: z
+    .string()
+    .max(160, {
+      message: "Description is too long",
+    })
+    .optional(),
+
   titleSeo: z.string().optional(),
   descriptionSeo: z.string().optional(),
   keywordsSeo: z.string().optional(),
+
+  isActive: z.boolean(),
+  isFeatured: z.boolean(),
 });
