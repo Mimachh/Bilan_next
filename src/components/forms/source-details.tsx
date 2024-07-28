@@ -47,11 +47,11 @@ const SourceDetails = () => {
       id: data.stat?.id || undefined,
       sources: [
         {
-          id: "",
+          id: undefined,
           url: "",
           name: "",
           description: "",
-          statistiqueId: data.stat?.id || "",
+          statistiqueId: data.stat?.id || undefined,
         },
       ],
     },
@@ -59,7 +59,7 @@ const SourceDetails = () => {
 
   useEffect(() => {
     if (!data.stat?.id) return;
-    const fetchSources = async (id: string) => {
+    const fetchSources = async (id: number) => {
       setLoading(true);
       const fetchedSources = await getSourcesByStatId(id);
       setSources(fetchedSources);
@@ -68,19 +68,19 @@ const SourceDetails = () => {
         sources:
           fetchedSources.length > 0
             ? fetchedSources.map((s) => ({
-                id: s.id || "",
+                id: s.id || undefined,
                 name: s.name || "",
                 url: s.url || "",
                 description: s.description || "",
-                statistiqueId: data.stat?.id || "",
+                statistiqueId: data.stat?.id || undefined,
               }))
             : [
                 {
-                  id: "",
+                  id: undefined,
                   url: "",
                   name: "",
                   description: "",
-                  statistiqueId: data.stat?.id || "",
+                  statistiqueId: data.stat?.id || undefined,
                 },
               ],
       });
@@ -237,11 +237,11 @@ const SourceDetails = () => {
                 className="flex items-center gap-2"
                 onClick={() => {
                   append({
-                    id: "",
+                    id: undefined,
                     url: "",
                     name: "",
                     description: "",
-                    statistiqueId: data.stat?.id || "",
+                    statistiqueId: data.stat?.id || 0,
                   });
                 }}
               >

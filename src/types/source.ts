@@ -1,7 +1,7 @@
 export interface SourceDataTable {
-    id: string;
+    id: number;
     url: string | null;
     name: string;
     description: string | null;
-    statistiqueId: string;
+    statistiqueId: number;
 }

@@ -76,8 +76,8 @@ const StatDetails = () => {
       isPrice: data.stat?.isPrice || false,
       isStatic: data.stat?.isStatic || false,
       isFeatured: data.stat?.isFeatured || false,
-      categoryId: data.stat?.categoryId || "",
-      refreshId: data.stat?.refreshId || "",
+      categoryId: data.stat?.categoryId || undefined,
+      refreshId: data.stat?.refreshId || undefined,
     },
   });
 
@@ -357,12 +357,12 @@ const StatDetails = () => {
                   onValueChange={(value) =>
                     field.onChange(value === "0" ? null : value)
                   }
-                  value={field.value}
+                  value={field.value.toString()}
                 >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue
-                        defaultValue={field.value}
+                        defaultValue={field.value.toString()}
                         placeholder="Choisir une catégorie"
                       />
                     </SelectTrigger>
@@ -392,12 +392,12 @@ const StatDetails = () => {
                   onValueChange={(value) =>
                     field.onChange(value === "0" ? null : value)
                   }
-                  value={field.value}
+                  value={field.value?.toString()}
                 >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue
-                        defaultValue={field.value}
+                        defaultValue={field.value?.toString()}
                         placeholder="Choisir un rafraichisseur"
                       />
                     </SelectTrigger>
@@ -405,7 +405,7 @@ const StatDetails = () => {
                   <SelectContent>
                     {/* <SelectItem value="0">-</SelectItem> */}
                     {refreshes?.map((refresh) => (
-                      <SelectItem className="hover:bg-gray-50 transition-all cursor-pointer" key={refresh.id} value={refresh.id}>
+                      <SelectItem className="hover:bg-gray-50 transition-all cursor-pointer" key={refresh.id} value={refresh.id.toString()}>
                         {refresh.name}
                       </SelectItem>
                     ))}

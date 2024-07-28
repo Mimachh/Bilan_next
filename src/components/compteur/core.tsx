@@ -1,5 +1,4 @@
 import React from "react";
-import Compteur from "./compteur";
 
 import DebtCounter from "./counter";
 
@@ -26,7 +25,7 @@ const CounterCore = () => {
         refresh={refreshEvery20MilSecond}
         totalNumberForNow={total}
       /> */}
-      <DebtCounter
+      {/* <DebtCounter
         now={now}
         startOfYear={startOfYear}
 
@@ -36,7 +35,7 @@ const CounterCore = () => {
         statToAdd={statToAdd}
         type={type}
         isStatic={false}
-      />
+      /> */}
     </div>
   );
 };
