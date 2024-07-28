@@ -5,7 +5,7 @@ import { SourceSchema } from "@/schemas/admin/source";
 import { StatAndSourceSchema } from "@/schemas/admin/statistic-schema";
 import { z } from "zod";
 
-export const getSourcesByStatId = async (id: string) => {
+export const getSourcesByStatId = async (id: number) => {
     const existingStat = await db.statistique.findFirst({
         where: {
             id,
@@ -55,7 +55,7 @@ export const upsertSources = async (data: z.infer<typeof StatAndSourceSchema>) =
         for (const source of data.sources) {
           await db.source.upsert({
             where: {
-              id: source.id ?? "undefined",
+              id: source.id ?? 0,
             },
             update: {
               name: source.name,

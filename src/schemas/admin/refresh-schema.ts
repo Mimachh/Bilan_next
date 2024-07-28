@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const RefreshSchema = z.object({
-  id: z.string().optional(),
+  id: z.number().optional(),
   name: z
     .string()
     .min(1, {

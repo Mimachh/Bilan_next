@@ -5,7 +5,7 @@ import { SourceSchema } from "./source";
 
 export const StatisticSchema = z
   .object({
-    id: z.string().optional(),
+    id: z.number().optional(),
     name: z.string().min(1).max(60),
     slug: z.string().optional(),
     stat_reference_previous_year: z.number(),
@@ -17,11 +17,11 @@ export const StatisticSchema = z
     // createdAt: z.string().optional(),
 
     // refresh: RefreshSchema.optional(),
-    categoryId: z.string(),
+    categoryId: z.number(),
     // category: CategorySchema.optional(),
     isStatic: z.boolean().default(false),
 
-    refreshId: z.string().optional(),
+    refreshId: z.number().optional(),
 
     has_starting_stat_to_add: z.boolean().default(false),
     starting_stat_to_add: z.number().optional(),
@@ -37,6 +37,6 @@ export const StatisticSchema = z
   });
 
 export const StatAndSourceSchema = z.object({
-  id: z.string().optional(),
+  id: z.number().optional(),
   sources: z.optional(z.array(SourceSchema)),
 });

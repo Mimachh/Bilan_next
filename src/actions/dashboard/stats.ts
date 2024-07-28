@@ -44,7 +44,7 @@ export const getStatsFromAdmin = async (): Promise<
   return stats;
 };
 
-export const getStatById = async (id: string) => {
+export const getStatById = async (id: number) => {
   const data = await db.statistique.findFirst({
     where: {
       id,
@@ -65,7 +65,7 @@ export const upsertStat = async (data: z.infer<typeof StatisticSchema>) => {
 
   await db.statistique.upsert({
     where: {
-      id: data.id ?? "undefined",
+      id: data.id ?? 0,
     },
     update: {
       slug,
@@ -80,7 +80,7 @@ export const upsertStat = async (data: z.infer<typeof StatisticSchema>) => {
   return { success: "Stat created or updated successfully!" };
 };
 
-export const deleteStat = async (id: string) => {
+export const deleteStat = async (id: number) => {
   const existingStat = await db.statistique.findFirst({
     where: {
       id,

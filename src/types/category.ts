@@ -1,7 +1,7 @@
 import { Statistic } from "./statistic"
 
 export interface CategoryDataTable {
-    id: string
+    id: number
     name: string
     description?: string | null
     slug: string

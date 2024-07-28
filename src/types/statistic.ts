@@ -1,7 +1,7 @@
 export interface StatisticDataTable {
-    id: string
+    id: number
     name: string
-    categoryId: string
+    categoryId: number
     category: {
         name: string
     }
@@ -17,7 +17,7 @@ export interface StatisticDataTable {
     isPrice: boolean
     comment: string | null
     createdAt: Date
-    refreshId: string | null
+    refreshId: number | null
     // sources: {}
 }
 

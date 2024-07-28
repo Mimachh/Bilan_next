@@ -30,7 +30,7 @@ export const getCategoriesFromAdmin = async (): Promise<
 };
 
 export const getCategoryById = async (
-  id: string
+  id: number
 ): Promise<CategoryDataTable | null> => {
   const category = await db.category.findFirst({
     where: {
@@ -55,7 +55,7 @@ export const createCategory = async (data: z.infer<typeof CategorySchema>) => {
 
   const category = await db.category.upsert({
     where: {
-      id: data.id ?? "undefined",
+      id: data.id ?? 0,
     },
     update: {
       slug,
@@ -70,7 +70,7 @@ export const createCategory = async (data: z.infer<typeof CategorySchema>) => {
   return { success: "Category created successfully!" };
 };
 
-export const deleteCategory = async (id: string) => {
+export const deleteCategory = async (id: number) => {
   const category = await db.category.findFirst({ 
     where: { id }
   });

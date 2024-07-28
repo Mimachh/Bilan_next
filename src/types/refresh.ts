@@ -1,5 +1,5 @@
 export interface RefreshDataTable {
-    id: string
+    id: number
     name: string
     slug: string
     value: number

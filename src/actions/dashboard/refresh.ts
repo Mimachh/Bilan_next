@@ -5,7 +5,7 @@ import { RefreshSchema } from "@/schemas/admin/refresh-schema";
 import { RefreshDataTable } from "@/types/refresh";
 import { z } from "zod";
 
-export const getRefreshById = async (id: string) => {
+export const getRefreshById = async (id: number) => {
   const refresh = await db.refreshCounter.findFirst({
     where: {
       id,
@@ -16,7 +16,7 @@ export const getRefreshById = async (id: string) => {
   return refresh;
 };
 
-export const deleteRefresh = async (id: string) => {
+export const deleteRefresh = async (id: number) => {
   const refresh = await db.refreshCounter.findFirst({
     where: { id },
   });
@@ -60,7 +60,7 @@ export const upsertRefresh = async (data: z.infer<typeof RefreshSchema>) => {
 
   await db.refreshCounter.upsert({
     where: {
-      id: data.id ?? "undefined",
+      id: data.id ?? 0,
     },
     update: {
       slug,
