@@ -98,7 +98,7 @@ interface CellActionsProps {
 }
 
 const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
-  if (!rowData) return;
+ 
   const router = useRouter();
   const { data, setOpen: setOpenModal } = useModal();
   const [isPending, startTransition] = useTransition();
@@ -111,6 +111,8 @@ const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  if (!rowData) return;
+  
   const onDelete = (id: string) => {
     startTransition(() => {
       deleteCategory(id)
