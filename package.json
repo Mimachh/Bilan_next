@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:vercel": "npx prisma generate && npx prisma migrate deploy && npx prisma db seed && next build",
+    "build:vercel": "npx prisma generate && npx prisma migrate deploy && npx prisma db push --force-reset && npx prisma db seed && next build",
     "start": "next start",
     "start:migrate:prod": "node server.js",
     "lint": "next lint",
