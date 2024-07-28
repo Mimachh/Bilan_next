@@ -96,13 +96,15 @@ interface CellActionsProps {
 }
 
 const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
+  if (!rowData) return;
+  const router = useRouter();
+
   const { data, setOpen: setOpenModal } = useModal();
   const [isPending, startTransition] = useTransition();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>("");
-  const router = useRouter();
-  if (!rowData) return;
+
 
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);

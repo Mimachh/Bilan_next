@@ -98,30 +98,20 @@ interface CellActionsProps {
 }
 
 const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
+  if (!rowData) return;
+  const router = useRouter();
   const { data, setOpen: setOpenModal } = useModal();
   const [isPending, startTransition] = useTransition();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>("");
-  const router = useRouter();
-  if (!rowData) return;
+ 
+ 
 
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const onDelete = (id: string) => {
-    // router.delete("/subscribe/cancel", {
-    //     data: {
-    //         sub_name: subscriptionName,
-    //         id: subscriptionId,
-    //     },
-    //     preserveScroll: true,
-    //     onSuccess: () => {
-    //         closeModal(), toast.success("Abonnement annulé avec succès");
-    //     },
-    //     onError: () => passwordInput.current?.focus(),
-    // });
-    // router.visit("/dashboard");
 
+  const onDelete = (id: string) => {
     startTransition(() => {
       deleteCategory(id)
         .then((d) => {
