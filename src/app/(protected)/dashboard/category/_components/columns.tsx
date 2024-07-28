@@ -112,8 +112,8 @@ const CellActions: React.FC<CellActionsProps> = ({ rowData }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   if (!rowData) return;
-  
-  const onDelete = (id: string) => {
+
+  const onDelete = (id: number) => {
     startTransition(() => {
       deleteCategory(id)
         .then((d) => {
