@@ -5,6 +5,7 @@ import { createCategory } from "./seeds/category";
 import { createRefresh } from "./seeds/refresh";
 import { createStatistique } from "./seeds/statistique";
 import { createSource } from "./seeds/source";
+import { createYear } from "./seeds/year";
 
 const prisma = new PrismaClient();
 async function main() {
@@ -52,6 +53,7 @@ async function main() {
     });
   }
 
+  await createYear()
   await createCategory()
   await createRefresh()
   await createStatistique()

@@ -68,10 +68,21 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+          textGradient: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'top center',
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'bottom center',
+          }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        textGradient: 'textGradient 5s ease infinite'
       },
       fontFamily: {
         madeTommy: ["Made Tommy", "system-ui"],

@@ -81,7 +81,7 @@ const CategoryDetails = () => {
 
       //   };
       //   fetchDetails();
-      console.log(data.category);
+      // console.log(data.category);
     }
   }, [data]);
   return (

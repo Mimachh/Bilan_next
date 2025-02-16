@@ -353,16 +353,16 @@ const StatDetails = () => {
                 <FormLabel>Catégorie</FormLabel>
                 <Select
                   disabled={isPending || form.formState.isSubmitting}
-                  // onValueChange={(value) => field.onChange(Number(value))}
-                  onValueChange={(value) =>
-                    field.onChange(value === "0" ? null : value)
-                  }
-                  value={field.value.toString()}
+                  onValueChange={(value) => field.onChange(Number(value))}
+                  // onValueChange={(value) =>
+                  //   field.onChange(value === "0" ? null : value)
+                  // }
+                  value={field.value?.toString()}
                 >
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue
-                        defaultValue={field.value.toString()}
+                        defaultValue={field.value?.toString()}
                         placeholder="Choisir une catégorie"
                       />
                     </SelectTrigger>
@@ -370,7 +370,7 @@ const StatDetails = () => {
                   <SelectContent>
                     {/* <SelectItem value="0">-</SelectItem> */}
                     {categories?.map((cat) => (
-                      <SelectItem className="hover:bg-gray-50 transition-all cursor-pointer" key={cat.id} value={cat.id.toString()}>
+                      <SelectItem className="hover:bg-gray-50 transition-all cursor-pointer" key={cat.id} value={cat.id?.toString()}>
                         {cat.name}
                       </SelectItem>
                     ))}
@@ -388,10 +388,10 @@ const StatDetails = () => {
                 <FormLabel>Rafraichisseur</FormLabel>
                 <Select
                   disabled={isPending || form.formState.isSubmitting}
-                  // onValueChange={(value) => field.onChange(Number(value))}
-                  onValueChange={(value) =>
-                    field.onChange(value === "0" ? null : value)
-                  }
+                  onValueChange={(value) => field.onChange(Number(value))}
+                  // onValueChange={(value) =>
+                  //   field.onChange(value === "0" ? null : value)
+                  // }
                   value={field.value?.toString()}
                 >
                   <FormControl>
@@ -405,7 +405,7 @@ const StatDetails = () => {
                   <SelectContent>
                     {/* <SelectItem value="0">-</SelectItem> */}
                     {refreshes?.map((refresh) => (
-                      <SelectItem className="hover:bg-gray-50 transition-all cursor-pointer" key={refresh.id} value={refresh.id.toString()}>
+                      <SelectItem className="hover:bg-gray-50 transition-all cursor-pointer" key={refresh.id} value={refresh.id?.toString()}>
                         {refresh.name}
                       </SelectItem>
                     ))}

@@ -2,10 +2,13 @@ import { Poppins } from "next/font/google";
 
 import Newsletter from "@/components/landing/newsletter";
 import FeatureStats from "@/components/landing/feature-stats";
-import Hero from "@/components/landing/hero";
 import EndMacron from "@/components/landing/end-macron";
 import Footer from "@/components/landing/footer";
-
+import RootNav from "@/components/landing/nav";
+import HeroBeta from "@/components/landing/hero-beta";
+import BetaNav from "@/components/landing/beta-nav";
+import BetaFeatureStat from "@/components/landing/beta-feature-stats";
+import Petition from "@/components/landing/petition";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -23,15 +26,16 @@ const Home = async () => {
         </Button>
       </LoginButton> */}
 
-
-      <Hero />
-
-      <Newsletter />
-
+      <BetaNav />
+      <HeroBeta />
+      <BetaFeatureStat />
+      <Petition />
+      {/* <Newsletter />
+      
       <FeatureStats />
-      <EndMacron deadline={deadline} />
-      <div className="bg-white h-32"></div>
-      <Footer />
+      <EndMacron deadline={deadline} /> */}
+      {/* <div className="bg-white h-32"></div> */}
+      {/* <Footer /> */}
     </main>
   );
 };

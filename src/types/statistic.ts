@@ -22,6 +22,7 @@ export interface StatisticDataTable {
 }
 
 export interface Statistic {
+    id: number
     name: string
     slug: string
     stat_reference_previous_year: number

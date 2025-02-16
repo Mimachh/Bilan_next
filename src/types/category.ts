@@ -1,5 +1,9 @@
 import { Statistic } from "./statistic"
 
+export interface CategoryNameSlug {
+    name: string
+    slug: string
+}
 export interface CategoryDataTable {
     id: number
     name: string
@@ -13,10 +17,10 @@ export interface CategoryDataTable {
 }
 
 export interface CategoryRootWithStats {
-    // id: string
+    id: number
     name: string
     // description?: string | null
-    // slug: string
+    slug: string
     // isActive: boolean
     // isFeatured: boolean
     // titleSeo?: string | null

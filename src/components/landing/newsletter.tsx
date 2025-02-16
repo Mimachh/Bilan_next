@@ -1,43 +1,8 @@
-"use client";
-import React, { useTransition } from "react";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "../ui/form";
-import { Input } from "../ui/input";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "../ui/button";
-import FramerMagnetic from "../global/FramerMagnetic";
+import React from "react";
 import { FacebookLogo, TwitterLogo } from "../svg";
-import { HoverBorderGradient } from "../ui/hover-border-gradient";
-
-const NewsletterSchema = z.object({
-  email: z.string().email(),
-});
+import NewsletterForm from "../forms/newsletter";
 
 const Newsletter = () => {
-  const [isPending, startTransition] = useTransition();
-
-  const form = useForm<z.infer<typeof NewsletterSchema>>({
-    resolver: zodResolver(NewsletterSchema),
-    defaultValues: {
-      email: "",
-    },
-  });
-
-  const onSubmit = (values: z.infer<typeof NewsletterSchema>) => {
-    // setError("");
-    // setSuccess("");
-
-    startTransition(() => {});
-  };
-
   return (
     <section className="bg-neutral-950 h-[35rem] md:min-h-[95vh]">
       <div className="flex-col flex items-center justify-center h-full w-full space-y-12">
@@ -74,40 +39,7 @@ const Newsletter = () => {
           </p>
         </div>
         <div className="px-12 md:px-2 w-full md:w-fit max-w-lg mx-auto">
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="relative w-full md:w-fit h-fit"
-            >
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="sr-only">Votre mail</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        type="mail"
-                        className="rounded-full py-5 h-12 w-full md:w-[450px] bg-neutral-900 text-neutral-200 border-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-none"
-                        disabled={isPending || form.formState.isSubmitting}
-                        placeholder="Votre mail"
-                      />
-                    </FormControl>
-                    <FormMessage className="absolute -bottom-5 right-2" />
-                  </FormItem>
-                )}
-              />
-
-                <Button size={"sm"} className="px-5 rounded-full bg-black border border-gray-200 absolute top-1/2 -translate-y-1/2 right-0.5 h-10">
-                  Je m&apos;inscris
-                </Button>
-           
-            </form>
-          </Form>
-          <p className="text-[12px] text-gray-300 tracking-tight mt-3 pl-2">
-            En vous inscrivant vous acceptez les CGU
-          </p>
+          <NewsletterForm />
         </div>
       </div>
     </section>

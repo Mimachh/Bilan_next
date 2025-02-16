@@ -108,7 +108,7 @@ body,
 @layer component {
 
   .gradient_primary_text {
-    @apply from-blue-200 via-blue-400 to-primaryColor  bg-gradient-to-b bg-clip-text text-transparent ;
+    @apply animate-textGradient from-blue-200 via-blue-400 to-primaryColor  bg-gradient-to-b bg-clip-text text-transparent ;
   }
 
   /* .title_section {

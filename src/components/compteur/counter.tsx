@@ -5,6 +5,13 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Eye, LineChart } from "lucide-react";
 import { Separator } from "../ui/separator";
+import { useCredenza } from "@/providers/credenza-provider";
+import CredenzaModal from "../global/credenza-modal";
+import CounterSourceDetails from "./counter-source-details";
+import CounterMetadataDetails from "./counter-metadata-details";
+import { getSourcesFromStatId } from "@/actions/root/sources";
+import { useExtraDataCounter } from "@/store/extra-data-counter-store";
+import { formatNumber } from "@/app/helper/formatNumber";
 
 interface Props {
   startOfYear: number;
@@ -16,6 +23,7 @@ const Counter = (props: Props) => {
   const [debt, setDebt] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  const {setOpen} = useCredenza()
   const annualNumber = stat.stat_reference_previous_year;
   const refreshRate = stat.refresh?.value ? stat.refresh.value : 1000;
   const statToAdd = stat.has_starting_stat_to_add
@@ -24,6 +32,10 @@ const Counter = (props: Props) => {
   const isStatic = stat.isStatic;
   const type = stat.isPrice ? "price" : "number";
 
+
+  const extraData = useExtraDataCounter.use.data();
+  const setExtraData = useExtraDataCounter.use.setData();
+  const setIsLoading = useExtraDataCounter.use.setIsLoading();
   useEffect(() => {
     // const startOfYear = new Date(new Date().getFullYear(), 0, 1).getTime();
 
@@ -59,40 +71,58 @@ const Counter = (props: Props) => {
     }
   }, [annualNumber, refreshRate, now, startOfYear, statToAdd, isStatic]);
 
-  const formatNumber = (value: number, type: "price" | "number") => {
-    if (type === "price") {
-      return (
-        value
-          .toFixed(2)
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-          .replace(".", ",") + " €"
-      );
-    } else {
-      return Math.ceil(value)
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
-  };
-
+  const fetchExtraData = async () => {
+    setIsLoading(true)
+    setExtraData({sources: await getSourcesFromStatId(stat.id)})
+    setIsLoading(false)
+  }
   return (
     <div className="my-5">
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="flex items-center justify-between gap-5">
-          <div className="space-y-1.5">
-            <h4 className="font-sans font-medium text-base">{stat.name} : </h4>
-            <p className="font-robotoMonospace text-neutral-800">{formatNumber(debt, type)}</p>
+          <div className="space-y-1">
+            <h4 className="font-sans font-bold text-base">{stat.name} : </h4>
+            <p className="font-robotoMonospace tracking-tight text-neutral-800">
+              {formatNumber(debt, type)}
+            </p>
           </div>
           <div className="space-x-1.5">
-            <Button variant={"outlinePrimaryColor"} size={"sm_icon"}>
+            {/* <Button 
+            onClick={() => {
+              setOpen(
+                <CredenzaModal
+                  title="Metadata"
+                  subheading="Données supplémentaires concernant le compteur"
+                >
+                  
+                  <CounterMetadataDetails />
+                </CredenzaModal>,
+                // async () => {
+                //   return { stat: await getStatById(rowData?.id) };
+                // }
+              );
+            }}
+            variant={"outlinePrimaryColor"} size={"sm_icon"}>
               <LineChart size={12} />
-            </Button>
-            <Button variant={"outlinePrimaryColor"} size={"sm_icon"}>
+            </Button> */}
+            <Button 
+            onClick={() => {
+              fetchExtraData()
+              setOpen(
+                <CredenzaModal
+                title="Sources"
+                subheading="Liste des sources officielles de ayant permis de calculer les projections de ce compteur."
+                >
+                  <CounterSourceDetails />
+                </CredenzaModal>
+              );
+            }}
+            variant={"outlinePrimaryColor"} size={"sm_icon"}>
               <Eye size={12} />
             </Button>
           </div>
-          
         </div>
       )}
       <Separator />
