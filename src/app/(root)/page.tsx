@@ -9,6 +9,8 @@ import HeroBeta from "@/components/landing/hero-beta";
 import BetaNav from "@/components/landing/beta-nav";
 import BetaFeatureStat from "@/components/landing/beta-feature-stats";
 import Petition from "@/components/landing/petition";
+import BetaFooter from "@/components/landing/beta-footer";
+import CookieConsent from "@/components/global/cookie-consent";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -36,6 +38,8 @@ const Home = async () => {
       <EndMacron deadline={deadline} /> */}
       {/* <div className="bg-white h-32"></div> */}
       {/* <Footer /> */}
+      <BetaFooter />
+      <CookieConsent variant={"small"} />
     </main>
   );
 };
