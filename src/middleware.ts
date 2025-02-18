@@ -30,6 +30,7 @@ export default auth(async (req) => {
   const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
   const isHomePage = nextUrl.pathname === HOMEPAGE;
   const isRecaptchaRoute = nextUrl.pathname === recaptchaRoute;
+  
   if (!isHomePage && !isApiAuthRoute) {
     if (isRecaptchaRoute) {
       return null;

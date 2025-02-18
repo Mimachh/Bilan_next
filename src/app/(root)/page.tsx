@@ -11,6 +11,8 @@ import BetaFeatureStat from "@/components/landing/beta-feature-stats";
 import Petition from "@/components/landing/petition";
 import BetaFooter from "@/components/landing/beta-footer";
 import CookieConsent from "@/components/global/cookie-consent";
+import BetaNewsletter from "@/components/landing/beta-newsletter";
+import GoogleCaptchaProvider from "@/providers/google-recaptcha-provider";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -21,7 +23,7 @@ const Home = async () => {
   const deadline = new Date(1808604000000);
 
   return (
-    <main className="h-full bg-black w-full relative">
+    <main className="h-max bg-black w-full relative">
       {/* <LoginButton asChild mode="modal">
         <Button variant="secondary" size="lg">
           Sign in
@@ -31,8 +33,11 @@ const Home = async () => {
       <BetaNav />
       <HeroBeta />
       <BetaFeatureStat />
+      <GoogleCaptchaProvider>
       <Petition />
-      {/* <Newsletter />
+      <BetaNewsletter />
+      </GoogleCaptchaProvider>
+      {/*
       
       <FeatureStats />
       <EndMacron deadline={deadline} /> */}

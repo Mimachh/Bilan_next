@@ -84,7 +84,16 @@ export const PetitionSchema = z.object({
   firstName: z.string().min(2, {
     message: "Le prénom est requis et doit contenir au moins 2 caractères",
   }),
-  terms: z.boolean({
-    required_error: "Vous devez accepter les conditions d'utilisation",
+  terms: z.boolean().refine((value) => value === true, {
+    message: "Vous devez accepter les CGU",
+  }),
+});
+
+export const NewsletterSchema = z.object({
+  email: z.string().email().min(1, {
+    message: "L'email est requis et doit être valide",
+  }),
+  terms: z.boolean().refine((value) => value === true, {
+    message: "Vous devez accepter les CGU",
   }),
 });

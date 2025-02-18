@@ -120,7 +120,7 @@ model RefreshCounter {
   value     Int      @default(0)
   createdAt DateTime @default(now())
 
-  statistics Statistique[]
+  statistics         Statistique[]
   archivedStatistics Archived_Statistique[]
 }
 
@@ -142,8 +142,8 @@ model Statistique {
 
   createdAt DateTime @default(now())
 
-  yearId      Int?
-  year        Year? @relation(fields: [yearId], references: [id], onDelete: SetNull)
+  yearId Int?
+  year   Year? @relation(fields: [yearId], references: [id], onDelete: SetNull)
 
   refreshId Int?
   refresh   RefreshCounter? @relation(fields: [refreshId], references: [id], onDelete: SetNull)
@@ -152,13 +152,12 @@ model Statistique {
   category   Category @relation(fields: [categoryId], references: [id])
 }
 
-
 model Year {
   id    Int    @id @default(autoincrement())
   name  String
   value String
 
-  statistics Statistique[]
+  statistics         Statistique[]
   archivedStatistics Archived_Statistique[]
 }
 
@@ -173,10 +172,8 @@ model Source {
   archivedStatistiqueId Int?
   archivedStatistique   Archived_Statistique? @relation(fields: [archivedStatistiqueId], references: [id], onDelete: SetNull)
 
-  createdAt     DateTime    @default(now())
+  createdAt DateTime @default(now())
 }
-
-
 
 model Archived_Statistique {
   id                           Int     @id @default(autoincrement())
@@ -196,8 +193,8 @@ model Archived_Statistique {
 
   createdAt DateTime @default(now())
 
-  yearId      Int?
-  year        Year? @relation(fields: [yearId], references: [id], onDelete: SetNull)
+  yearId Int?
+  year   Year? @relation(fields: [yearId], references: [id], onDelete: SetNull)
 
   refreshId Int?
   refresh   RefreshCounter? @relation(fields: [refreshId], references: [id], onDelete: SetNull)
@@ -206,10 +203,6 @@ model Archived_Statistique {
   category   Category @relation(fields: [categoryId], references: [id])
 }
 
-
-// petition, je récupère l'email de l'utilisateur et je lui envoie un mail pour confirmer son inscription
-// une confirmation par email
-// ou alors récupération d'ip, mais l'ip doit être hashée
 model Petition {
   id        Int      @id @default(autoincrement())
   email     String   @unique
@@ -217,5 +210,12 @@ model Petition {
   lastName  String
   terms     Boolean
   ip        String
+  createdAt DateTime @default(now())
+}
+
+model Newsletter {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  terms     Boolean
   createdAt DateTime @default(now())
 }

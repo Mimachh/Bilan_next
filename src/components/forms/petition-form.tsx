@@ -175,6 +175,8 @@ const PetitionForm = () => {
             )}
           />
 
+          {/* FIXME: ajouter inscription newsletter */}
+
           <div className="flex justify-end pt-6">
             <Button variant={"primaryColor"} size={"xl"} className="text-md">
               Je signe
