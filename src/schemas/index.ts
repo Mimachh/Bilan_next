@@ -73,3 +73,18 @@ export const RegisterSchema = z.object({
     message: "Name is required",
   }),
 });
+
+export const PetitionSchema = z.object({
+  email: z.string().email().min(1, {
+    message: "L'email est requis et doit être valide",
+  }),
+  lastName: z.string().min(2, {
+    message: "Le nom est requis et doit contenir au moins 2 caractères",
+  }),
+  firstName: z.string().min(2, {
+    message: "Le prénom est requis et doit contenir au moins 2 caractères",
+  }),
+  terms: z.boolean({
+    required_error: "Vous devez accepter les conditions d'utilisation",
+  }),
+});

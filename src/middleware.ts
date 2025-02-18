@@ -7,25 +7,39 @@ import {
   authRoutes,
   publicRoutes,
   adminRoutes,
-  DEFAULT_FORBIDDEN_REDIRECT
+  DEFAULT_FORBIDDEN_REDIRECT,
+  HOMEPAGE,
+  recaptchaRoute
 } from "@/next-auth-config/routes";
 import { NextResponse } from "next/server";
 import { useCheckAdminRole, useCheckSuperAdminRole } from "@/hooks/use-check-admin-role";
 
 const { auth } = NextAuth(authConfig);
 
+//@ts-ignore
 export default auth(async (req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
 
-  
- 
+
+
   const isAdmin = await useCheckAdminRole(req.auth?.user.roles) || await useCheckSuperAdminRole(req.auth?.user.roles);
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
-  
+  const isHomePage = nextUrl.pathname === HOMEPAGE;
+  const isRecaptchaRoute = nextUrl.pathname === recaptchaRoute;
+  if (!isHomePage && !isApiAuthRoute) {
+    if (isRecaptchaRoute) {
+      return null;
+    } else {
+      return NextResponse.redirect(new URL(HOMEPAGE, nextUrl));
+    }
+
+  }
+
+
   if (isApiAuthRoute) {
     return null;
   }
@@ -38,10 +52,10 @@ export default auth(async (req) => {
     return null;
   }
 
-  if(isAdminRoute) {
-    if(isLoggedIn && isAdmin) {
+  if (isAdminRoute) {
+    if (isLoggedIn && isAdmin) {
       return null;
-    } else if(isLoggedIn && !isAdmin) {
+    } else if (isLoggedIn && !isAdmin) {
       return Response.redirect(new URL(DEFAULT_FORBIDDEN_REDIRECT, nextUrl))
     }
   }

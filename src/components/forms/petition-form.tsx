@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { Button } from "../ui/button";
 import {
   Form,
@@ -18,17 +18,16 @@ import { cn } from "@/lib/utils";
 import { Input } from "../ui/input";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
-
-const PetitionSchema = z.object({
-  email: z.string().email().nonempty(),
-  lastName: z.string().min(2),
-  firstName: z.string().min(2),
-  terms: z.boolean(),
-});
+import { PetitionSchema } from "@/schemas";
+import { signPetition } from "@/actions/petition";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const PetitionForm = () => {
   const [isPending, startTransition] = useTransition();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const [error, setError] = useState<string | undefined>("");
+  const router = useRouter();
   const form = useForm<z.infer<typeof PetitionSchema>>({
     resolver: zodResolver(PetitionSchema),
     defaultValues: {
@@ -45,7 +44,7 @@ const PetitionForm = () => {
       return;
     }
     const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
-    startTransition(() => {});
+    // startTransition(() => {});
     const response = await axios({
       method: "post",
       url: "/api/recaptcha",
@@ -60,6 +59,26 @@ const PetitionForm = () => {
 
     if (response?.data?.success === true) {
       console.log(`Success with score: ${response?.data?.score}`);
+      startTransition(() => {
+        signPetition(values)
+          .then((d) => {
+            if (d?.error) {
+              form.reset();
+              console.log(d.error);
+              setError(d.error);
+            }
+
+            if (d?.success) {
+              form.reset();
+              router.refresh();
+              toast.success("Merci de votre signature");
+            }
+          })
+          .catch(() => {
+            console.log('erreur')
+            setError("Something went wrong")
+          });
+      });
     } else {
       console.log(`Failure with score: ${response?.data?.score}`);
     }

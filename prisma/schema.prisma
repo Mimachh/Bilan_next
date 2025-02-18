@@ -212,7 +212,7 @@ model Archived_Statistique {
 // ou alors récupération d'ip, mais l'ip doit être hashée
 model Petition {
   id        Int      @id @default(autoincrement())
-  email     String
+  email     String   @unique
   firstName String
   lastName  String
   terms     Boolean
