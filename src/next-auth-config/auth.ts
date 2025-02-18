@@ -6,6 +6,7 @@ export const {
   auth,
   signIn,
   signOut,
+  //@ts-ignore
   update,
 } = NextAuth({
   ...authConfig,
