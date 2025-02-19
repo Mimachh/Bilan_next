@@ -20,7 +20,6 @@ import { NewsletterSchema } from "@/schemas";
 import { Checkbox } from "../ui/checkbox";
 import Link from "next/link";
 import { optin } from "@/actions/newsletter";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
@@ -40,7 +39,6 @@ const { executeRecaptcha } = useGoogleReCaptcha();
     },
   });
 
-  const router = useRouter();
   const onSubmit = async (values: z.infer<typeof NewsletterSchema>) => {
     if (!executeRecaptcha) {
       console.log("not available to execute recaptcha");
@@ -74,7 +72,6 @@ const { executeRecaptcha } = useGoogleReCaptcha();
 
             if (d?.success) {
               form.reset();
-              router.refresh();
               toast.success("Vous êtes bien inscrit !");
             }
           })

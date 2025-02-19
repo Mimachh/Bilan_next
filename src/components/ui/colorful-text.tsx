@@ -30,7 +30,7 @@ const colors = [
       const shuffled = [...colors].sort(() => Math.random() - 0.5);
       setCurrentColors(shuffled);
       setCount((prev) => prev + 1);
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);

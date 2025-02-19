@@ -23,14 +23,12 @@ const Home = async () => {
   const deadline = new Date(1808604000000);
 
   return (
-    <main className="h-max bg-black w-full relative">
+    <main className="">
       {/* <LoginButton asChild mode="modal">
         <Button variant="secondary" size="lg">
           Sign in
         </Button>
       </LoginButton> */}
-
-      <BetaNav />
       <HeroBeta />
       <BetaFeatureStat />
       <GoogleCaptchaProvider>

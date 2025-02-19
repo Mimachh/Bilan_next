@@ -8,8 +8,8 @@ import {
   publicRoutes,
   adminRoutes,
   DEFAULT_FORBIDDEN_REDIRECT,
-  HOMEPAGE,
-  recaptchaRoute
+  recaptchaRoute,
+  publicBetaPages
 } from "@/next-auth-config/routes";
 import { NextResponse } from "next/server";
 import { useCheckAdminRole, useCheckSuperAdminRole } from "@/hooks/use-check-admin-role";
@@ -28,14 +28,14 @@ export default auth(async (req) => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
   const isAdminRoute = nextUrl.pathname.startsWith(adminRoutes);
-  const isHomePage = nextUrl.pathname === HOMEPAGE;
+  const isPublicBetaPages = publicBetaPages.includes(nextUrl.pathname);
   const isRecaptchaRoute = nextUrl.pathname === recaptchaRoute;
-  
-  if (!isHomePage && !isApiAuthRoute) {
-    if (isRecaptchaRoute) {
+
+  if (!isPublicBetaPages && !isApiAuthRoute) {
+    if (isRecaptchaRoute || isPublicBetaPages) {
       return null;
     } else {
-      return NextResponse.redirect(new URL(HOMEPAGE, nextUrl));
+      return NextResponse.redirect(new URL("/", nextUrl));
     }
 
   }

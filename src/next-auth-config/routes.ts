@@ -1,3 +1,11 @@
+export const publicBetaPages = [
+  "/",
+  "/a-propos",
+  "/nous-contacter",
+  "conditions-generales-d-utilisation",
+  "/mentions-legales",
+  "/politique-de-confidentialite",
+];
 /**
  * An array of routes that are accessible to the public
  * These routes do not require authentication
@@ -6,6 +14,7 @@
 export const publicRoutes = [
   "/",
   "/auth/new-verification",
+  ...publicBetaPages
 ];
 
 export const recaptchaRoute = "/api/recaptcha";
@@ -41,4 +50,3 @@ export const DEFAULT_LOGIN_REDIRECT = "/settings";
 
 export const DEFAULT_FORBIDDEN_REDIRECT = "/forbidden";
 
-export const HOMEPAGE = "/";

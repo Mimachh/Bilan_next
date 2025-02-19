@@ -20,14 +20,12 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 import { PetitionSchema } from "@/schemas";
 import { signPetition } from "@/actions/petition";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 const PetitionForm = () => {
   const [isPending, startTransition] = useTransition();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [error, setError] = useState<string | undefined>("");
-  const router = useRouter();
   const form = useForm<z.infer<typeof PetitionSchema>>({
     resolver: zodResolver(PetitionSchema),
     defaultValues: {
@@ -70,7 +68,6 @@ const PetitionForm = () => {
 
             if (d?.success) {
               form.reset();
-              router.refresh();
               toast.success("Merci de votre signature");
             }
           })
