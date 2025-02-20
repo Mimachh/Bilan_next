@@ -48,7 +48,7 @@ const SingleCounter = (props: Props) => {
     }, [annualNumber, refreshRate, now, startOfYear, statToAdd, isStatic]);
   
   return (
-    <div className={cn(className, "text-7xl font-bold font-robotoMonospace tracking-tighter")}>
+    <div className={cn(className, "md:text-7xl font-bold font-robotoMonospace tracking-tighter")}>
       {formatNumber(debt, type)}
     </div>
   );

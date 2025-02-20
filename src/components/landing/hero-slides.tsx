@@ -20,7 +20,7 @@ const HeroSlide = (props: Props) => {
   };
 
   return (
-    <div className="bg-black text-white flex justify-center items-center min-h-[80vh] w-full relative">
+    <div className="bg-black text-white flex justify-center items-center min-h-[60vh] md:min-h-[80vh] w-full relative px-6">
       <ProgressBar
         intervalTime={intervalTime}
         onComplete={handleSlideChange}
@@ -35,13 +35,13 @@ const HeroSlide = (props: Props) => {
               i === index ? "opacity-100" : "opacity-0"
             }`}
           >
-            <div className="h-[150px]">
+            <div className="h-[90px] md:h-[150px]">
               <p className="font-madeTommy gradient_primary_text font-medium text-xl">
                 {counter.title}
               </p>
               {counter.stat && (
                 <SingleCounter
-                  className="text-9xl"
+                  className="text-3xl md:text-9xl"
                   now={now}
                   startOfYear={startOfYear}
                   stat={counter.stat}
@@ -52,7 +52,7 @@ const HeroSlide = (props: Props) => {
         ))}
 
         {/* Partie réseaux fixée en bas */}
-        <div className="font-madeTommy absolute bottom-[180px] left-0 w-full text-center">
+        <div className="font-madeTommy absolute bottom-[50px] md:bottom-[180px] left-0 w-full text-center">
           <p className="text-2xl font-bold">#PartageTonChaos</p>
           <div>Réseaux</div>
         </div>

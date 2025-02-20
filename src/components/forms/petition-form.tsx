@@ -81,7 +81,7 @@ const PetitionForm = () => {
     }
   };
   return (
-    <div className="py-12 bg-white rounded-2xl p-5 flex flex-col items-center">
+    <div className="py-12 bg-white rounded-2xl p-5 flex flex-col items-center w-full">
       <h4 className="mb-8 text-3xl font-bold font-madeTommy  gradient_primary_text">
         Signez notre pétition :{" "}
       </h4>

@@ -19,7 +19,7 @@ const Petition = () => {
           </span>
         </h4>
 
-        <div className="flex gap-2 my-8">
+        <div className="flex-col md:flex-row flex gap-2 my-8">
           <div className="">
             <div className="w-full h-[580px] relative">
               <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent"></div>
@@ -32,14 +32,14 @@ const Petition = () => {
               <Image
                 className="w-full h-full object-cover"
                 src={"/assets/hanouna.png"}
-                width={650}
-                priority
+                width={900}
+                priority={false}
                 height={900}
                 alt="Macron"
               />
             </div>
           </div>
-          <div className="h-uto flex items-center">
+          <div className="h-auto flex items-center">
               <PetitionForm />
           </div>
         </div>

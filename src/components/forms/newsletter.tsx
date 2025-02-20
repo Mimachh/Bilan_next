@@ -119,7 +119,7 @@ const { executeRecaptcha } = useGoogleReCaptcha();
                 as="button"
                 className="bg-black text-white flex items-center space-x-2 text-xs h-10"
               >
-                <span>Je m'inscris</span>
+                <span className="hidden md:flex">Je m'inscris</span>
                 <ArrowRight size={14} />
               </HoverBorderGradient>
             </div>
