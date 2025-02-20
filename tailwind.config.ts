@@ -98,6 +98,7 @@ const config = {
       fontFamily: {
         madeTommy: ["Made Tommy", "system-ui"],
         robotoMonospace: ['Roboto Mono', 'monospace'],
+        montSerrat: ['Montserrat', 'sans-serif'],
       },
     },
   },

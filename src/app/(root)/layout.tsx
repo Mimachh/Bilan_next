@@ -15,7 +15,7 @@ export default async function RootLayout({
 
 
   return (
-    <div className="h-max bg-white w-full relative">
+    <div className="h-max bg-black w-full relative">
         <BetaNav />
         {children}
     </div>

@@ -17,7 +17,6 @@ const BetaNav = () => {
 
   const links = [
     { name: "Accueil", href: "/" },
-    { name: "À propos", href: "/a-propos" },
     { name: "Nous contacter", href: "/nous-contacter" },
   ];
 

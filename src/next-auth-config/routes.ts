@@ -1,6 +1,5 @@
 export const publicBetaPages = [
   "/",
-  "/a-propos",
   "/nous-contacter",
   "conditions-generales-d-utilisation",
   "/mentions-legales",

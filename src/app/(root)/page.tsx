@@ -13,6 +13,8 @@ import BetaFooter from "@/components/landing/beta-footer";
 import CookieConsent from "@/components/global/cookie-consent";
 import BetaNewsletter from "@/components/landing/beta-newsletter";
 import GoogleCaptchaProvider from "@/providers/google-recaptcha-provider";
+import About from "@/components/landing/about";
+import ContactForm from "@/components/forms/contact-form";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -34,6 +36,8 @@ const Home = async () => {
       <GoogleCaptchaProvider>
       <Petition />
       <BetaNewsletter />
+      <About />
+      <ContactForm />
       </GoogleCaptchaProvider>
       {/*
       
