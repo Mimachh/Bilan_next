@@ -1,4 +1,6 @@
 import BetaNav from "@/components/landing/beta-nav";
+import GoogleCaptchaProvider from "@/providers/google-recaptcha-provider";
+import ModalProvider from "@/providers/modal-provider";
 import type { Metadata } from "next";
 
 
@@ -15,9 +17,13 @@ export default async function RootLayout({
 
 
   return (
-    <div className="h-max bg-black w-full relative">
-        <BetaNav />
-        {children}
-    </div>
+    <GoogleCaptchaProvider>
+      <ModalProvider>
+        <div className="h-max bg-black w-full relative">
+          <BetaNav />
+          {children}
+        </div>
+      </ModalProvider>
+    </GoogleCaptchaProvider>
   );
 }

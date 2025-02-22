@@ -124,6 +124,7 @@ const { executeRecaptcha } = useGoogleReCaptcha();
               </HoverBorderGradient>
             </div>
           </div>
+              {/* FIXME: link */}
           <FormField
             control={form.control}
             name="terms"

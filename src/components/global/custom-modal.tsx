@@ -11,7 +11,7 @@ import { useModal } from '@/providers/modal-provider'
 
 type Props = {
   title: string
-  subheading: string
+  subheading?: string
   children: React.ReactNode
   defaultOpen?: boolean
 }
@@ -26,7 +26,11 @@ const CustomModal = ({ children, defaultOpen, subheading, title }: Props) => {
       <DialogContent className="overflow-scroll md:max-h-[700px] md:h-fit h-screen bg-card">
         <DialogHeader className="text-left">
           <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
-          <DialogDescription>{subheading}</DialogDescription>
+          {subheading && (
+            <DialogDescription className="text-neutral-500">
+              {subheading}
+            </DialogDescription>
+          )}
           {children}
         </DialogHeader>
       </DialogContent>

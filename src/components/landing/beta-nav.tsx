@@ -11,13 +11,13 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ColourfulText } from "../ui/colorful-text";
 import { usePathname } from "next/navigation";
+import ContactButton from "./contact-button";
 
 const BetaNav = () => {
   const pathname = usePathname();
 
   const links = [
-    { name: "Accueil", href: "/" },
-    { name: "Nous contacter", href: "/nous-contacter" },
+    { name: "Accueil", href: "/" }
   ];
 
   return (
@@ -27,7 +27,7 @@ const BetaNav = () => {
           <ColourfulText text="France" /> Chaos
         </h1>
         <div className="flex items-center gap-4">
-          <NavigationMenu className="border-none">
+          {/* <NavigationMenu className="border-none">
             <NavigationMenuList>
               {links.map((link, index) => {
                 const isActive =
@@ -50,7 +50,8 @@ const BetaNav = () => {
                 );
               })}
             </NavigationMenuList>
-          </NavigationMenu>
+          </NavigationMenu> */}
+          <ContactButton />
         </div>
       </div>
     </nav>

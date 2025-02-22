@@ -219,3 +219,14 @@ model Newsletter {
   terms     Boolean
   createdAt DateTime @default(now())
 }
+
+model Contact {
+  id        Int      @id @default(autoincrement())
+  email     String
+  firstName String
+  lastName  String
+  message   String
+  object    String
+  terms     Boolean
+  createdAt DateTime @default(now())
+}
