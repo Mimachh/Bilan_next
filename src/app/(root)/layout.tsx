@@ -1,3 +1,4 @@
+import BetaFooter from "@/components/landing/beta-footer";
 import BetaNav from "@/components/landing/beta-nav";
 import GoogleCaptchaProvider from "@/providers/google-recaptcha-provider";
 import ModalProvider from "@/providers/modal-provider";
@@ -22,6 +23,7 @@ export default async function RootLayout({
         <div className="h-max bg-black w-full relative">
           <BetaNav />
           {children}
+          <BetaFooter />
         </div>
       </ModalProvider>
     </GoogleCaptchaProvider>

@@ -51,6 +51,29 @@ const BetaNav = () => {
               })}
             </NavigationMenuList>
           </NavigationMenu> */}
+
+          {pathname !== "/" && (
+            <NavigationMenu className="border-none">
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link href={"/"} legacyBehavior passHref>
+                    <NavigationMenuLink
+                      active={pathname === "/"}
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        'focus:bg-transparent focus:text-white data-[active]:bg-transparent data-[active]:text-primaryColor bg-transparent hover:bg-transparent hover:text-primaryColor'
+                      )}
+                    >
+                      Accueil
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+
+
+              </NavigationMenuList>
+            </NavigationMenu>
+          )}
+
           <ContactButton />
         </div>
       </div>

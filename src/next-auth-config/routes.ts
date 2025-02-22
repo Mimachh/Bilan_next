@@ -3,7 +3,7 @@ export const publicBetaPages = [
   "/nous-contacter",
   "conditions-generales-d-utilisation",
   "/mentions-legales",
-  "/politique-de-confidentialite",
+  "/politiques-de-confidentialite",
 ];
 /**
  * An array of routes that are accessible to the public
