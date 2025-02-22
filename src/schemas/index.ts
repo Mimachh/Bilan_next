@@ -97,3 +97,25 @@ export const NewsletterSchema = z.object({
     message: "Vous devez accepter les CGU",
   }),
 });
+
+
+export const ContactSchema = z.object({
+  email: z.string().email().min(1, {
+    message: "L'email est requis et doit être valide",
+  }),
+  lastName: z.string().min(2, {
+    message: "Le nom est requis et doit contenir au moins 2 caractères",
+  }),
+  firstName: z.string().min(2, {
+    message: "Le prénom est requis et doit contenir au moins 2 caractères",
+  }),
+  object: z.string().min(1, {
+    message: "L'objet est requis",
+  }),
+  message: z.string().min(1, {
+    message: "Le message est requis",
+  }),
+  terms: z.boolean().refine((value) => value === true, {
+    message: "Vous devez accepter les CGU",
+  }),
+});
