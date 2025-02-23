@@ -94,7 +94,7 @@ const ContactForm = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="pt-4 relative w-full h-fit space-y-5"
+            className="pt-4 relative w-full md:h-fit space-y-5"
           >
             <div className="grid grid-cols-2 gap-4 w-full">
               <FormField

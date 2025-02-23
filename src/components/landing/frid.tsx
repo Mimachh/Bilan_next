@@ -177,7 +177,7 @@ export function GlowingEffectDemo(props: Props) {
         description={
           <div>
             <ul className="space-y-2">
-              <li className="flex items-end gap-2">
+              <li className="flex-col flex md:flex-row  md:items-end gap-2">
                 Budget de la justice :
                 <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
@@ -186,7 +186,7 @@ export function GlowingEffectDemo(props: Props) {
                   stat={stats.justice}
                 />
               </li>
-              <li className="flex items-end gap-2">
+              <li className="flex-col flex md:flex-row  md:items-end gap-2">
                 Charges parlementaires :
                 <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
@@ -195,7 +195,7 @@ export function GlowingEffectDemo(props: Props) {
                   stat={stats.parlementaire}
                 />
               </li>
-              <li className="flex items-end gap-2">
+              <li className="flex-col flex md:flex-row  md:items-end gap-2">
                 Assemblée Nationale :
                 <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
@@ -219,7 +219,7 @@ export function GlowingEffectDemo(props: Props) {
         description={
           <div>
             <ul>
-              <li className="md:flex-col flex items-start">Aide au développement :
+              <li className="flex-col flex items-start">Aide au développement :
               <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
                   now={now}
@@ -227,7 +227,7 @@ export function GlowingEffectDemo(props: Props) {
                   stat={stats.development}
                 />
               </li>
-              <li className="md:flex-col flex items-start">
+              <li className="flex-col flex items-start">
                 AME: 
                 <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
@@ -272,11 +272,11 @@ export function GlowingEffectDemo(props: Props) {
       <GridItem
         area="md:[grid-area:4/1/5/13] xl:[grid-area:2/6/3/13]"
         icon={<Tv className="h-4 w-4 text-neutral-400" />}
-        title="Coming soon on Aceternity UI"
+        title="Caca"
         description={
           <div>
             <ul>
-              <li className="flex items-end gap-2">
+              <li className="flex-col flex md:flex-row  md:items-end gap-2">
                 Audiovisuel public :
                 <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
@@ -285,7 +285,7 @@ export function GlowingEffectDemo(props: Props) {
                   stat={stats.audiovisuel}
                 />
               </li>
-              <li className="flex items-end gap-2">
+              <li className="flex-col flex md:flex-row  md:items-end gap-2">
                 ARCOM :
                 <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
