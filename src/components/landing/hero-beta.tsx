@@ -1,7 +1,7 @@
 import { getCounterBySlug } from "@/actions/root/stat";
-import { getCurrentYear } from "@/actions/root/year";
 import React from "react";
 import HeroSlide from "./hero-slides";
+import { getStartOfYear } from "@/lib/const";
 
 
 const slides = [
@@ -11,8 +11,9 @@ const slides = [
 ];
 
 const HeroBeta = async () => {
-  const year = await getCurrentYear();
-  const startOfYear = year?.value ? parseInt(year?.value) : 1672527600000;
+  // const year = await getCurrentYear();
+  // const startOfYear = year?.value ? parseInt(year?.value) : 1672527600000;
+  const startOfYear = getStartOfYear;
   const now = new Date().getTime();
 
   const counters = await Promise.all(

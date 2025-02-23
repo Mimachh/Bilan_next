@@ -3,14 +3,14 @@ import React from "react";
 import { CategoryRootWithStats } from "@/types/category";
 import { getActiveCountersGroupedByCategory } from "@/actions/root/stat";
 import Counter from "../compteur/counter";
-import { getCurrentYear } from "@/actions/root/year";
+import { getStartOfYear } from "@/lib/const";
 
 const FeatureStats = async () => {
   const stats: CategoryRootWithStats[] =
     await getActiveCountersGroupedByCategory();
   
-  const year = await getCurrentYear()
-  const startOfYear = year?.value ? parseInt(year?.value) : 1672527600000
+  // const startOfYear = year?.value ? parseInt(year?.value) : 1672527600000
+  const startOfYear = getStartOfYear;
   // const startOfYear = 1672527600000; // 1er janvier 2023
   const now = new Date().getTime();
 

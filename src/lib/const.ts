@@ -1,0 +1,1 @@
+export const getStartOfYear = 1735686000000;

@@ -41,7 +41,7 @@ const HeroSlide = (props: Props) => {
               </p>
               {counter.stat && (
                 <SingleCounter
-                  className="text-3xl md:text-9xl"
+                  className="text-3xl md:text-7xl"
                   now={now}
                   startOfYear={startOfYear}
                   stat={counter.stat}

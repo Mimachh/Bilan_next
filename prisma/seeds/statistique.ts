@@ -137,9 +137,10 @@ const statistiques = [
     isFeatured: true
   },
   {
+    // Stat de 2025 beta
     name: "Aide publique au développement",
     slug: "aide-publique-au-developpement",
-    stat_reference_previous_year: 5900000000,
+    stat_reference_previous_year: 4400000000,
     has_starting_stat_to_add: false,
     comment: "",
     categoryId: 4,
@@ -149,9 +150,88 @@ const statistiques = [
     isFeatured: false
   },
   {
+    // name: "Montant de l'AME",
+    // slug: "montant-ame",
+    // stat_reference_previous_year: 1212300000,
+    // has_starting_stat_to_add: false,
+    // comment: "",
+    // categoryId: 4,
+    // refreshId: 1,
+    // isPrice: true,
+    // isActive: true,
+    // isFeatured: true
+
+    // STAT DE 2025 BETA
     name: "Montant de l'AME",
     slug: "montant-ame",
-    stat_reference_previous_year: 1212300000,
+    stat_reference_previous_year: 13000000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 4,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+  {
+    // STAT DE 2025 BETA
+    name: "Budget de l'assemblée nationale",
+    slug: "budget-assemblee-nationale",
+    stat_reference_previous_year: 606000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 4,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+  {
+    // STAT DE 2025 BETA
+    name: "Charges parlementaires",
+    slug: "charges-parlementaires",
+    stat_reference_previous_year: 351210000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 4,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+
+  {
+    // STAT DE 2025 BETA
+    name: "Dépenses sociales",
+    slug: "depenses-sociales",
+    stat_reference_previous_year: 666000000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 4,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+
+  // Stat de 2025 beta
+  {
+    name: "Audiovisuel public",
+    slug: "audiovisuel-public",
+    stat_reference_previous_year: 80000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 4,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+  // Stat de 2025 beta
+  {
+    name: "Coût de l'ARCOM",
+    slug: "cout-arcom",
+    stat_reference_previous_year: 50000000,
     has_starting_stat_to_add: false,
     comment: "",
     categoryId: 4,
@@ -212,9 +292,11 @@ const statistiques = [
     isFeatured: false
   },
   {
+    // stat de 2025 beta
     name: "Coups et blessures volontaires",
     slug: "coups-et-blessures-volontaires",
-    stat_reference_previous_year: 353600,
+    //stat_reference_previous_year: 353600, // en 2022
+    stat_reference_previous_year: 480600, // en 2024 projection 2025
     has_starting_stat_to_add: false,
     comment: "",
     categoryId: 3,
@@ -428,6 +510,19 @@ const statistiques = [
     isFeatured: true
   },
 
+  // Stats de 2025 beta
+  {
+    name: "Bugdet de la sécurité",
+    slug: "budget-securite",
+    stat_reference_previous_year: 26000000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 3,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
   // Immigration
   {
     name: "Immigration légale",
@@ -686,4 +781,33 @@ const statistiques = [
     isActive: true,
     isFeatured: true
   },
+
+  // ECOLOGIE
+  // Stats de 2025 beta
+  {
+    name: "Dépenses liées à l'écologie",
+    slug: "depenses-liees-a-l-ecologie",
+    stat_reference_previous_year: 21000000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 6,
+    refreshId: 1, // FIXME: 
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+
+  // JUSTICE
+  // Stats de 2025 beta
+  {
+    name: "Budget de la justice",
+    slug: "budget-justice",
+    stat_reference_previous_year: 10500000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 7,
+    refreshId: 1, // FIXME:
+    isPrice: true,
+    isActive: true,
+  }
 ]

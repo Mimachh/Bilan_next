@@ -11,6 +11,10 @@ const categories = [
     name: "2024",
     value: "1704067201000",
   },
+  {
+    name: "2025",
+    value: "1735686000000"
+  }
 ];
 export const createYear = async () => {
   await prisma.year.createMany({

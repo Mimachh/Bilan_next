@@ -58,6 +58,28 @@ const categories = [
     isActive: true,
     isFeatured: true,
   },
+  {
+    name: "Écologie",
+    slug: "ecologie",
+    description: "",
+    titleSeo: "Bilan de l'écologie en France sous Macron en 2025",
+    descriptionSeo:
+      "Voici un bilan en temps réel de la religion en France sous le mandat de Emmanuel Macron en 2025.",
+    keywordsSeo: "Ecologie. France. Macron. 2024. Bilan",
+    isActive: true,
+    isFeatured: true,
+  },
+  {
+    name: "Justice",
+    slug: "justice",
+    description: "",
+    titleSeo: "Bilan de la justice en France sous Macron en 2024",
+    descriptionSeo:
+      "Voici un bilan en temps réel de la justice en France sous le mandat de Emmanuel Macron en 2024.",
+    keywordsSeo: "Justice. France. Macron. 2024. Bilan",
+    isActive: true,
+    isFeatured: true,
+  }
 ];
 export const createCategory = async () => {
   await prisma.category.createMany({
