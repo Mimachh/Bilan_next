@@ -37,7 +37,7 @@ const Petition = () => {
           </div>
 
           {/* CONTENU TEXTUEL AVEC ANIMATION */}
-          <div className={cn("relative bg-white rounded-2xl p-5 md:p-8 flex flex-col items-center   w-full shadow-lg", showPetition ? "min-h-[580px]" : "md:min-h-[560px] min-h-[600px] lg:min-h-[710px]")}>
+          <div className={cn("relative bg-white rounded-2xl p-5 md:p-8 flex flex-col items-center   w-full shadow-lg", showPetition ? "min-h-[580px]" : "md:min-h-[560px] min-h-[600px] lg:min-h-[640px]")}>
             {/* OpenLetter et PetitionForm sont superposés ici */}
             <div className="relative w-full h-full">
               <div

@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import SingleCounter from "../compteur/single-counter";
 import ProgressBar from "./progress-bar";
+import Link from "next/link";
+import { Facebook, Instagram } from "lucide-react";
+import { XTwitter } from "../svg";
 
 interface Props {
   counters: any[];
@@ -19,6 +22,7 @@ const HeroSlide = (props: Props) => {
     setIndex((prevIndex) => (prevIndex + 1) % counters.length);
   };
 
+  const url = "https://france-chaos.fr";
   return (
     <div className="bg-black text-white flex justify-center items-center min-h-[60vh] md:min-h-[80vh] w-full relative px-6">
       <ProgressBar
@@ -52,9 +56,39 @@ const HeroSlide = (props: Props) => {
         ))}
 
         {/* Partie réseaux fixée en bas */}
-        <div className="font-madeTommy absolute bottom-[50px] md:bottom-[180px] left-0 w-full text-center">
+        <div className="font-madeTommy absolute bottom-[50px] md:bottom-[140px] left-0 w-full text-center">
           <p className="text-2xl font-bold">#PartageTonChaos</p>
-          <div>Réseaux</div>
+          <div className="flex justify-center items-center space-x-4 mt-5">
+            <ul className="flex space-x-4">
+              <li>
+                <Link
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                    url
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primaryColor transition-all"
+                >
+                  <Facebook />
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
+                    url
+                  )}&text=${encodeURIComponent(
+                    "Découvrez le chaos Français sur France Chaos ! #PartageTonChaos"
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-primaryColor transition-all"
+                >
+                  <XTwitter className="w-7 h-7" />
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
