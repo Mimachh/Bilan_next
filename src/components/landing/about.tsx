@@ -14,12 +14,10 @@ const About = () => {
             France rurale. Deux Français préoccupés par l’état de dégradation de
             notre pays, car c’est notre génération, ainsi que celle de nos
             enfants, qui paiera les conséquences des politiques menées ces 40
-            dernières années. <br />
-            Nous n’avons aucune appartenance politique, nous nous considérons
-            comme de simples et humbles patriotes. <br /> À travers notre
+            dernières années. <br /> À travers notre
             initiative France Chaos, un site de projections statistiques{" "}
             <span className="font-semibold">en temps réel</span> basé sur les
-            résultats des années passées, nous souhaitons alerter les Français
+            chiffres annoncés de différentes sources (PLF 2025, Ministère de l'Intérieur, Insee, etc), nous souhaitons alerter les Français
             sur l'accélération de{" "}
             <span className="font-semibold">la dégradation du pays</span>,
             l'ampleur de <span className="font-semibold">la dette</span> qui
