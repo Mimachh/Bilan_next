@@ -5,7 +5,7 @@ import PetitionForm from "../forms/petition-form";
 import OpenLetter from "./open-letter";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-
+import { sendGAEvent } from "@next/third-parties/google";
 const Petition = () => {
   const [showPetition, setShowPetition] = useState(false);
 
@@ -63,7 +63,13 @@ const Petition = () => {
             {/* BOUTON SWITCH */}
             <Button
             variant={"destructive"}
-              onClick={() => setShowPetition(!showPetition)}
+              onClick={() => {
+                setShowPetition(!showPetition);
+                sendGAEvent({
+                  event: "petition",
+                  value: showPetition ? "open-letter" : "petition-form"
+                })
+              }}
               className="absolute bottom-8"
             >
               {showPetition ? "Voir la lettre" : "Signer la pétition"}
