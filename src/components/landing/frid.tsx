@@ -305,7 +305,7 @@ export function GlowingEffectDemo(props: Props) {
                   stat={stats.vol_vehicule}
                 />
               </li>
-              <li className="flex items-end gap-2">Policiers blessé<script src=""></script> :
+              <li className="flex items-end gap-2">Policiers blessé :
               <SingleCounter
                   className="text-sm md:text-sm text-white/95 tracking-wider"
                   now={now}
