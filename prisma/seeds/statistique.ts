@@ -52,11 +52,11 @@ const statistiques = [
     isFeatured: true
   },
   {
-    name: "Dette publique",
+    name: "Dette publique", // mis à jour beta
     slug: "dette-publique",
     stat_reference_previous_year: 125560000000,
     has_starting_stat_to_add: true,
-    starting_stat_to_add: 2950000000000,
+    starting_stat_to_add: 3045500000000,
     comment: "",
     categoryId: 4,
     refreshId: 1,
@@ -232,6 +232,18 @@ const statistiques = [
     name: "Coût de l'ARCOM",
     slug: "cout-arcom",
     stat_reference_previous_year: 50000000,
+    has_starting_stat_to_add: false,
+    comment: "",
+    categoryId: 4,
+    refreshId: 1,
+    isPrice: true,
+    isActive: true,
+    isFeatured: true
+  },
+  {
+    name: "Intérêts de la dette", // mis à jour beta
+    slug: "interets-dette",
+    stat_reference_previous_year: 59000000000,
     has_starting_stat_to_add: false,
     comment: "",
     categoryId: 4,

@@ -6,8 +6,8 @@ import { getStartOfYear } from "@/lib/const";
 
 const slides = [
   { slug: "dette-publique", title: "Votre dette" },
-  { slug: "deficit-cumule", title: "Déficit cumulé" },
-  { slug: "fraude-carte-vitale", title: "Fraude à la carte vitale" },
+  { slug: "arcom", title: "Arcom" },
+  { slug: "depenses-sociales", title: "Dépenses sociales" },
 ];
 
 const HeroBeta = async () => {

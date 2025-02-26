@@ -3,6 +3,7 @@
 import {
   Box,
   Euro,
+  HandHelping,
   Lock,
   Search,
   Settings,
@@ -166,7 +167,39 @@ export function GlowingEffectDemo(props: Props) {
         isFeatured: true,
         isStatic: false,
         id: 8,
-    }
+    },
+    vol_vehicule: {
+            name: "Vols de véhicules",
+            slug: "vols-de-vehicules",
+            stat_reference_previous_year: 138100, // en 2024 projection 2025
+            has_starting_stat_to_add: false,
+            comment: "",
+            categoryId: 3,
+            refresh: {
+                value: 1000
+            },
+            isPrice: false,
+            isActive: true,
+            isFeatured: true,
+            isStatic: false,
+            id: 9,
+    },
+    policier_blesse: {
+        name: "Policiers blessés",
+        slug: "policiers-blesses",
+        stat_reference_previous_year: 10000, // en 2024 projection 2025
+        has_starting_stat_to_add: false,
+        comment: "",
+        categoryId: 3,
+        refresh: {
+            value: 1000
+        },
+        isPrice: false,
+        isActive: true,
+        isFeatured: true,
+        isStatic: false,
+        id: 10,
+}
   };
   return (
     <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2 px-4 md:px-0">
@@ -214,8 +247,8 @@ export function GlowingEffectDemo(props: Props) {
     // insécurité */}
       <GridItem
         area="md:[grid-area:2/1/3/13] xl:[grid-area:2/1/3/6]"
-        icon={<Trash className="h-4 w-4 text-neutral-400" />}
-        title="Dépenses inutiles"
+        icon={<HandHelping className="h-4 w-4 text-neutral-400" />}
+        title="Aide étrangère"
         description={
           <div>
             <ul>
@@ -264,6 +297,22 @@ export function GlowingEffectDemo(props: Props) {
                   stat={stats.homicide}
                 />
               </li>
+              <li className="flex items-end gap-2">Vol de véhicules :
+              <SingleCounter
+                  className="text-sm md:text-sm text-white/95 tracking-wider"
+                  now={now}
+                  startOfYear={startOfYear}
+                  stat={stats.vol_vehicule}
+                />
+              </li>
+              <li className="flex items-end gap-2">Policiers blessé<script src=""></script> :
+              <SingleCounter
+                  className="text-sm md:text-sm text-white/95 tracking-wider"
+                  now={now}
+                  startOfYear={startOfYear}
+                  stat={stats.policier_blesse}
+                />
+              </li>
             </ul>
           </div>
         }
@@ -271,8 +320,8 @@ export function GlowingEffectDemo(props: Props) {
 
       <GridItem
         area="md:[grid-area:4/1/5/13] xl:[grid-area:2/6/3/13]"
-        icon={<Tv className="h-4 w-4 text-neutral-400" />}
-        title="Caca"
+        icon={<Trash className="h-4 w-4 text-neutral-400" />}
+        title="Dépenses inutiles"
         description={
           <div>
             <ul>

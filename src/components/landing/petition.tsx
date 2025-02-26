@@ -12,13 +12,17 @@ const Petition = () => {
   return (
     <div className="bg-black pt-24 pb-32">
       <div className="max-w-7xl mx-auto px-4">
-        <h4 className="mb-24 text-center text-white text-2xl font-normal">
+        <h4 className=" text-center text-white text-2xl font-normal">
           Face au déclassement, face à l'insécurité, face à l'effondrement de
           notre économie... <br />
           <span className="uppercase font-5xl font-extrabold">
             FACE AU CHAOS
           </span>
         </h4>
+        <div className="mb-24 text-white text-center mt-3 text-xl">
+        <p>Nous appelons <strong>M. Cyril Hanouna</strong> à se porter candidat <br /> à l'élection présidentielle de 2027.</p>
+        </div>
+        
 
         {/* GRID CONTAINER */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

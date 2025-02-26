@@ -7,8 +7,8 @@ const About = () => {
       <p className="uppercase text-primaryColor text-center">A propos</p>
       <TitleSection title="Qui sommes-nous ?" classNames="text-center mb-12" />
 
-      <div className="grid grid-cols-12">
-        <div className="col-span-12 md:col-span-6">
+      <div className="">
+        <div className="flex justify-center max-w-xl mx-auto">
           <p className="tracking-wider leading-7 text-muted/85 font-normal text-[15px] font-montSerrat">
             Nous sommes deux Français âgés de 28 et 33 ans, originaires de la
             France rurale. Deux Français préoccupés par l’état de dégradation de
